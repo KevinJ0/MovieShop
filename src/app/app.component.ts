@@ -9,8 +9,9 @@ import { AuthService } from './Service/auth.service';
 export class AppComponent {
 
   constructor(private auth: AuthService){}
+  title = 'Angular tareas';
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
 
 
   }
