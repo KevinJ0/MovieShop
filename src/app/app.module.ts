@@ -8,6 +8,9 @@ import { NavbarComponent } from './Componentes/shared/navbar/navbar.component';
 import { CallbackComponent } from './Componentes/callback/callback.component';
 import { AuthService } from './Service/auth.service';
 import { AppRoutingModule } from './app-routing.module';
+import { PeliculaComponent } from './pelicula/pelicula.component';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http'; 
 
 @NgModule({
   declarations: [
@@ -15,11 +18,14 @@ import { AppRoutingModule } from './app-routing.module';
     HomeComponent,
     SearchComponent,
     NavbarComponent,
-    CallbackComponent
+    CallbackComponent,
+    PeliculaComponent   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule,
+    HttpClientModule,
   ],
   providers: [
     AuthService
