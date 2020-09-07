@@ -12,7 +12,7 @@ export class PeliculasService {
   URL_API = `https://api.themoviedb.org/3/movie/popular?api_key=79279b415e6f8506ed9d11b5eede79ce&language=en-US&page=1`;
   constructor(private http: HttpClient) { }
 
-  getAllMovies(): Observable<any> {
+  public getAllMovies(): Observable<any> {
     return this.http.get<any>(this.URL_API).
       pipe(map((data: any) => data.results));
 
