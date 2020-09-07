@@ -6,17 +6,28 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
+<<<<<<< HEAD
             <li routerLinkActive="activo" class="nav-item">
                 <a class="nav-link"  routerLink="/home">Home <span class="sr-only">(current)</span></a>
+=======
+            <li class="nav-item ">
+                <a class="nav-link" routerLink="/home" routerLinkActive="active">Home </a>
+>>>>>>> 8ace605d274b590491e0a5677362d84a5e27b9d5
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Search</a>
+                <a class="nav-link" routerLink="/search" routerLinkActive="active">Search</a>
             </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <button class="btn button-outline-primary" (click)="auth.login()" *ngIf="!auth.loggedIn">Log In</button>
-            <button class="btn btn-outline-danger" (click)="auth.logout()" *ngIf="auth.loggedIn">Log Out</button>
+            <li class="nav-item">
+                <a class="nav-link" *ngIf="auth.loggedIn" routerLink="/profile" routerLinkActive="active">Profile</a>
+            </li>
 
-        </form>
+        </ul>
+        <span class="navbar-text">
+          <button class="btn btn-outline-primary" (click)="auth.login()" *ngIf="!auth.loggedIn">Log In
+          </button>
+
+          <button class="btn btn-outline-danger" (click)="auth.logout()" *ngIf="auth.loggedIn">Log Out
+        </button>
+        </span >
     </div>
 </nav>
