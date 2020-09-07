@@ -20,6 +20,7 @@ import { ProfileComponent } from './Componentes/profile/profile.component';
     NavbarComponent,
     PeliculaComponent,
     ProfileComponent,
+
   ],
   imports: [
     BrowserModule,
