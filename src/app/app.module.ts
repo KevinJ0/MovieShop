@@ -5,9 +5,9 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './Componentes/home/home.component';
 import { SearchComponent } from './Componentes/search/search.component';
 import { NavbarComponent } from './Componentes/shared/navbar/navbar.component';
-import { CallbackComponent } from './Componentes/callback/callback.component';
 import { AuthService } from './Service/auth.service';
 import { AppRoutingModule } from './app-routing.module';
+import { ProfileComponent } from './Componentes/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
     HomeComponent,
     SearchComponent,
     NavbarComponent,
-    CallbackComponent
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
