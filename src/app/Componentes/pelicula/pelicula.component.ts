@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PeliculasService } from '../Service/peliculas.service';
+import { PeliculasService } from '../../Service/peliculas.service';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -12,7 +12,7 @@ export class PeliculaComponent implements OnInit {
   constructor(private peliculaSvc: PeliculasService) { }
 
   peliculas: Observable<any>;
-  pelicula:any;
+  pelicula:any; 
   ngOnInit(): void {
 
     this.getAllMovies();
