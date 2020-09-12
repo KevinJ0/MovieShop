@@ -20,6 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 @NgModule({
   declarations: [
@@ -36,10 +37,12 @@ import { MatInputModule } from '@angular/material/input';
     BrowserModule,
     AppRoutingModule,
     RouterModule,
-    HttpClientModule, MatInputModule,
+    HttpClientModule,
+    MatInputModule,
     MatIconModule,
     MatListModule,
     MatButtonModule,
+    FlexLayoutModule,
     MatToolbarModule,
     MatFormFieldModule,
     MatSidenavModule,
