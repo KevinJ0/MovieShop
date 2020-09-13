@@ -1,4 +1,7 @@
 function carousel() {
+
+
+
     const fila = document.querySelector('.contenedor-carousel');
     const peliculas = document.querySelectorAll('.pelicula');
 
@@ -7,8 +10,8 @@ function carousel() {
 
     // ? ----- ----- Event Listener para la flecha derecha. ----- -----
     flechaDerecha.addEventListener('click', () => {
-         fila.scrollLeft += (fila.offsetWidth);
-         console.log(fila.offsetWidth)
+        fila.scrollLeft += (fila.offsetWidth);
+        console.log(fila.offsetWidth)
 
         const indicadorActivo = document.querySelector('.indicadores .activo');
         if (indicadorActivo.nextSibling) {
@@ -60,4 +63,26 @@ function carousel() {
     fila.addEventListener('mouseleave', () => {
         peliculas.forEach(pelicula => pelicula.classList.remove('hover'));
     });
+
+
+
+}
+
+function showArrows() {
+
+    const flechaIzquierda = document.getElementById('flecha-izquierda');
+    const flechaDerecha = document.getElementById('flecha-derecha');
+
+
+    flechaDerecha.style.opacity = "1";
+    flechaIzquierda.style.opacity = "1";
+}
+function hideArrows() {
+
+
+    const flechaIzquierda = document.getElementById('flecha-izquierda');
+    const flechaDerecha = document.getElementById('flecha-derecha');
+
+    flechaDerecha.style.opacity = "0";
+    flechaIzquierda.style.opacity = "0";
 }

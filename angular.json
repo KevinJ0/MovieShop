@@ -128,10 +128,7 @@
           }
         }
       
-    },
-    "defaultProject": "MovieShop",
-    "cli": {
-      "analytics": false
-    }
-  }
+    }},
+    "defaultProject": "MovieShop"
+ 
   }
