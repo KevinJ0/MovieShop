@@ -1,14 +1,19 @@
-<div fxFlex="25" fxFlex.md="33" fxFlex.sm="50" fxFlex.xs="100" 
-*ngFor="let peli of peliculas | async" style="padding: 6px">
-<img src="https://image.tmdb.org/t/p/w200/{{peli.poster_path}}" alt="">
-<h4>titulo: <b>{{peli.original_title}}</b></h4>
-<mat-card>
-    <img mat-card-image src="https://image.tmdb.org/t/p/w200/{{peli.poster_path}}" alt=" ">
-    <mat-card-title>asdasd</mat-card-title>
-    <mat-card-footer>
-      <a href="" target="_blank" fxFlex mat-flat-button color="primary">Detalles</a>
-    </mat-card-footer>
-  </mat-card>
-</div>
+<div class="peliculas-recomendadas contenedor">
 
-  
+  <div class="contenedor-principal">
+    <button role="button" id="flecha-izquierda" class="flecha-izquierda"><i class="fas fa-angle-left"></i></button>
+
+    <div class="contenedor-carousel">
+      <div class="carousel">
+        <mat-card class="pelicula" *ngFor="let peli of peliculas | async">
+          <img mat-card-image src="https://image.tmdb.org/t/p/w200/{{peli.poster_path}}" alt=" ">
+          <mat-card-title>
+            {{peli.original_title}}
+          </mat-card-title>
+        </mat-card>
+      </div>
+    </div>
+    <button role="button" id="flecha-derecha" class="flecha-derecha"><i class="fas fa-angle-right"></i></button>
+  </div>
+
+</div>
