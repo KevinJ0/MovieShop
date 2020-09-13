@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { PeliculasService } from '../../Service/peliculas.service';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent {
 
-  constructor() { }
+  constructor(private pelisevi: PeliculasService) { }
 
-  ngOnInit(): void {
+  buscar(termino: string) {
+    this.pelisevi.getSearch(termino).subscribe((data: any) => (
+      console.log(data)
+    ));
+    console.log(termino);
   }
-
 }

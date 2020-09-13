@@ -1,23 +1,18 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">MovieShop</a>
+
+    <a class="navbar-brand nav-link" routerLink="/home">MovieShop</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-
-            <li routerLinkActive="activo" class="nav-item">
-                <a class="nav-link"  routerLink="/home">Home <span class="sr-only">(current)</span></a>
-
-            </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/search" routerLinkActive="active">Search</a>
+                <a class="nav-link " data-toggle="modal" data-target="#staticBackdrop" routerLink="/search" routerLinkActive="active"><i class="fas fa-search"></i></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" *ngIf="auth.loggedIn" routerLink="/profile" routerLinkActive="active">Profile</a>
             </li>
-
         </ul>
         <span class="navbar-text">
           <button class="btn btn-outline-primary" (click)="auth.login()" *ngIf="!auth.loggedIn">Log In
@@ -27,4 +22,7 @@
         </button>
         </span >
     </div>
+
 </nav>
+
+<!-- <i class="fas fa-ellipsis-h"></i> -->
