@@ -5,6 +5,7 @@ import { HomeComponent } from './Componentes/home/home.component';
 import { SearchComponent } from './Componentes/search/search.component';
 import { ProfileComponent } from './Componentes/profile/profile.component';
 import { AuthGuard } from './Service/auth.guard';
+import { ViewComponent } from './Componentes/view/view.component';
 
 
 const routes: Routes = [
@@ -20,7 +21,22 @@ const routes: Routes = [
     path: 'profile',
     component: ProfileComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'view/:id',
+    component: ViewComponent
+  },
+  {
+    path: '***',
+    pathMatch: 'full',
+    redirectTo: 'home'
+  },
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'home'
   }
+
 
 ];
 

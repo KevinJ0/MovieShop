@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PeliculasService } from '../../Service/peliculas.service';
 import { Observable } from 'rxjs';
+import { carousel } from '../../../assets/js/carousel';
 
 //#region metodo declarado en un archivo js
 declare function carousel(): any;
@@ -22,14 +23,12 @@ export class PeliculaComponent implements OnInit {
   ngOnInit(): void {
     carousel();
     this.getAllMovies();
-    this.peliculas.subscribe(to => console.log(to))
-
-
-
+    this.peliculas.subscribe(to => console.log(to));
   }
   getAllMovies() {
 
     this.peliculas = this.peliculaSvc.getAllMovies();
+    console.log(this.peliculas);
   }
 
 

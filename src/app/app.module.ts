@@ -20,7 +20,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { FlexLayoutModule } from "@angular/flex-layout";
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { TarjetasComponent } from './Componentes/tarjetas/tarjetas.component';
+import { CutTextPipe } from './Pipes/cut-text.pipe';
+import { NoImagenPipe } from './Pipes/no-imagen.pipe';
+import { ViewComponent } from './Componentes/view/view.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +35,10 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     NavbarComponent,
     PeliculaComponent,
     ProfileComponent,
+    TarjetasComponent,
+    CutTextPipe,
+    NoImagenPipe,
+    ViewComponent,
 
   ],
   imports: [

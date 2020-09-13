@@ -1,0 +1,8 @@
+<div class="card-columns mt-5">
+    <div (click)="VerPeliculas( item )" class="card" *ngFor="let item of items">
+        <img mat-card-image src="https://image.tmdb.org/t/p/w200/{{item.poster_path}}" class="card-img-top puntero" alt="">
+        <div class="card-body">
+            <h5 class="card-title badge badge-pill badge-primary">{{item.original_title | cutText: 50 }}</h5>
+            <p class="card-text">{{item.overview | cutText: 100}} </p>
+        </div>
+    </div>
