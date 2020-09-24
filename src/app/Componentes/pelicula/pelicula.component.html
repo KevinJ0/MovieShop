@@ -1,19 +1,19 @@
-<div class="peliculas-recomendadas contenedor">
+<div class="peliculas-recomendadas contenedor mt-5">
 
-  <div class="contenedor-principal" onmouseover="showArrows()" onmouseout="hideArrows()">
-    <button role="button" id="flecha-izquierda" class="flecha-izquierda"><i class="fas fa-angle-left"></i></button>
+    <div class="contenedor-principal" onmouseover="showArrows()" onmouseout="hideArrows()">
+        <button role="button" id="flecha-izquierda" class="flecha-izquierda"><i class="fas fa-angle-left"></i></button>
 
-    <div class="contenedor-carousel">
-      <div class="carousel">
-        <mat-card class="pelicula" *ngFor="let peli of peliculas | async">
-          <img mat-card-image src="https://image.tmdb.org/t/p/w200/{{peli.poster_path}}" alt=" ">
-          <mat-card-title>
-            {{peli.original_title}}
-          </mat-card-title>
-        </mat-card>
-      </div>
+        <div class="contenedor-carousel puntero">
+            <div class="carousel">
+                <mat-card class="pelicula" *ngFor="let peli of peliculas | async">
+                    <img mat-card-image src="https://image.tmdb.org/t/p/w200/{{peli.poster_path}}" alt=" ">
+                    <mat-card-title>
+                        {{peli.original_title}}
+                    </mat-card-title>
+                </mat-card>
+            </div>
+        </div>
+        <button role="button" id="flecha-derecha" class="flecha-derecha"><i class="fas fa-angle-right"></i></button>
     </div>
-    <button role="button" id="flecha-derecha" class="flecha-derecha"><i class="fas fa-angle-right"></i></button>
-  </div>
 
 </div>

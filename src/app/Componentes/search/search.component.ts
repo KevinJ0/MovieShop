@@ -13,14 +13,13 @@ export class SearchComponent {
 
   constructor(private pelisevi: PeliculasService) { }
 
-  buscar(termino: string){
+  buscar(termino: string): void{
     console.log(termino);
     this.loading = true;
     this.pelisevi.getSearch(termino).subscribe((data: any) => {
       console.log(data);
       this.resultado = data;
       this.loading = false;
-
     });
   }
 }
