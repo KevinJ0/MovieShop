@@ -66,19 +66,7 @@ body {
   margin-bottom: 6.25em;
 }
 
-.pelicula-principal .titulo {
-  font-weight: 600;
-  font-size: 3.12em;
-  margin-bottom: 0.4em;
-}
 
-.pelicula-principal .descripcion {
-  font-weight: normal;
-  font-size: 1em;
-  line-height: 1.75em;
-  max-width: 50%;
-  margin-bottom: 1.25em;
-}
 
 .pelicula-principal .boton {
   background: rgba(0, 0, 0, 0.5);

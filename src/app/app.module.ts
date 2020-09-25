@@ -25,6 +25,7 @@ import { TarjetasComponent } from './Componentes/tarjetas/tarjetas.component';
 import { CutTextPipe } from './Pipes/cut-text.pipe';
 import { NoImagenPipe } from './Pipes/no-imagen.pipe';
 import { ViewComponent } from './Componentes/view/view.component';
+import { CarouselComponent } from './Componentes/carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { ViewComponent } from './Componentes/view/view.component';
     CutTextPipe,
     NoImagenPipe,
     ViewComponent,
+    CarouselComponent,
 
   ],
   imports: [

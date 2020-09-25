@@ -1,0 +1,83 @@
+/* ---- ----- ----- Pelicula Principal ----- ----- ----- */
+.pelicula-principal {
+  font-size: 16px;
+  min-height: 40.62em;
+  color: #fff;
+  background: linear-gradient(rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%),
+    url("../../../assets/img/fondohome.jpg");
+  background-size: cover;
+  margin-bottom: 1.5em;
+  display: flex;
+  align-items: end;
+}
+
+.pelicula-principal .contenedor {
+  width: 90%;
+  margin: auto;
+}
+
+.pelicula-principal .titulo {
+  font-weight: 600;
+  font-size: 3.12em;
+  margin-bottom: 0.4em;
+}
+
+.pelicula-principal .descripcion {
+  font-weight: normal;
+  font-size: 1em;
+  line-height: 1.75em;
+  max-width: 50%;
+  margin-bottom: 1.25em;
+}
+
+.pelicula-principal .boton {
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 0.31em;
+  padding: 0.93em 1.87em;
+  color: #fff;
+  margin-right: 1.25em;
+  cursor: pointer;
+  transition: 0.3s ease all;
+  font-size: 1.12em;
+  outline: none;
+  font-weight: bold;
+}
+
+.pelicula-principal .boton:hover {
+  background: #fff;
+  color: #000;
+}
+
+.pelicula-principal .boton i {
+  margin-right: 1.25em;
+}
+
+@media screen and (max-width: 831px) {
+  .pelicula-principal .boton {
+    font-size: 1.02em;
+
+    padding: 0.83em 1.67em;
+  }
+  .pelicula-principal .titulo {
+    font-size: 40px;
+  }
+}
+@media screen and (max-width: 631px) {
+  .pelicula-principal .titulo {
+    font-size: 34px;
+  }
+  .pelicula-principal .boton {
+    font-size: 0.82em;
+    padding: 0.73em 1.47em;
+  }
+}
+@media screen and (max-width: 527px) {
+  .pelicula-principal .titulo {
+    font-size: 25px;
+  }
+  .pelicula-principal .boton {
+    font-size: 0.62em;
+    padding: 0.63em 1.27em;
+  }
+}
