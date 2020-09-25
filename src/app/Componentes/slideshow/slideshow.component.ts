@@ -12,9 +12,11 @@ export class SlideshowComponent implements OnInit, AfterViewInit {
 
   @Input() movies: Movie[];
 
+  public mySwiper: Swiper;
+
   constructor() { }
   ngAfterViewInit(): void {
-    const mySwiper = new Swiper('.swiper-container', {
+     this.mySwiper = new Swiper('.swiper-container', {
       // Optional parameters
       direction: 'horizontal',
       loop: true,
@@ -39,6 +41,15 @@ export class SlideshowComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     console.log(this.movies);
+  }
+  
+  onSlidePrev(): void{
+    this.mySwiper.slidePrev();
+
+  }
+  onSlideNext(): void{
+    this.mySwiper.slideNext();
+
   }
 
 }
