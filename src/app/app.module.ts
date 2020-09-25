@@ -25,6 +25,16 @@ import { TarjetasComponent } from './Componentes/tarjetas/tarjetas.component';
 import { CutTextPipe } from './Pipes/cut-text.pipe';
 import { NoImagenPipe } from './Pipes/no-imagen.pipe';
 import { ViewComponent } from './Componentes/view/view.component';
+import { SlideshowComponent } from './Componentes/slideshow/slideshow.component';
+import { SwiperModule } from 'ngx-swiper-wrapper';
+import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
+import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
+
+const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
+  direction: 'horizontal',
+  slidesPerView: 'auto'
+};
+
 
 @NgModule({
   declarations: [
@@ -39,6 +49,7 @@ import { ViewComponent } from './Componentes/view/view.component';
     CutTextPipe,
     NoImagenPipe,
     ViewComponent,
+    SlideshowComponent,
 
   ],
   imports: [
@@ -56,9 +67,15 @@ import { ViewComponent } from './Componentes/view/view.component';
     MatSidenavModule,
     ReactiveFormsModule,
     MatCardModule,
+    SwiperModule
+
   ],
   providers: [
-    AuthService
+    AuthService,
+    {
+      provide: SWIPER_CONFIG,
+      useValue: DEFAULT_SWIPER_CONFIG
+    }
   ],
   bootstrap: [AppComponent]
 })
