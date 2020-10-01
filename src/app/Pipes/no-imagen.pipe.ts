@@ -5,16 +5,14 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class NoImagenPipe implements PipeTransform {
 
-  transform(item: any ): any {
-
-    if (item.backdrop_path) {
-      return item.backdrop_path;
+  transform(poster: string ): string {
+    if(poster) {
+      return `https://image.tmdb.org/t/p/w500${poster}`;
     }else {
-      if ( item.poster_path) {
-        return item.poster_path;
-      }else {
-        return 'assets/img/no-imagen.jpg';
-      }
-    }
+      return './assets/img/no-image.jpg';
+    } 
   }
 }
+
+
+

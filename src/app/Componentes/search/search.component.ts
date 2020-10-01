@@ -1,3 +1,4 @@
+import { CarteleraResponse } from './../../Interfaces/cartelera-response';
 import { Component } from '@angular/core';
 import { PeliculasService } from '../../Service/peliculas.service';
 import { Observable } from 'rxjs';

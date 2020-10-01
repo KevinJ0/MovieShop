@@ -27,6 +27,7 @@
     "angular2-useful-swiper": "^8.0.1-beta.1",
     "bootstrap": "^4.5.2",
     "jquery": "^3.5.1",
+    "ng-starrating": "^1.0.20",
     "ngx-swiper-wrapper": "^10.0.0",
     "react-dev-utils": "^10.1.0",
     "rxjs": "~6.6.0",

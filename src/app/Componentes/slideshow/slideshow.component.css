@@ -9,7 +9,7 @@
 }
 
 .movie-desc {
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.3);
     bottom: 0;
     padding: 5px 30px;
     position: absolute;
