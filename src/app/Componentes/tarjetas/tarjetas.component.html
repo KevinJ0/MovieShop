@@ -1,8 +1,22 @@
-<div class="card-columns mt-5">
-    <div (click)="VerPeliculas( item )" class="card" *ngFor="let item of items">
-        <img mat-card-image src="https://image.tmdb.org/t/p/w200/{{item.poster_path}}" class="card-img-top puntero" alt="">
-        <div class="card-body">
-            <h5 class="card-title badge badge-pill badge-primary">{{item.original_title | cutText: 50 }}</h5>
-            <p class="card-text">{{item.overview | cutText: 100}} </p>
+<div class="row mt-5 p-5">
+    <div (click)="VerPeliculas( item )" class="col-md-3 mb-5 " *ngFor="let item of items">
+        <img [src]="item.poster_path | noImagen" class="img-fluid poster puntero" alt="{{item.title}}">
+        <div>
+            <h3>{{item.title || item.name |cutText:33 }}</h3>
+            <div class="row">
+                <div class="col-7">
+                    <star-rating 
+                    [value]="item.vote_average"
+                    totalstars="10"
+                    checkedcolor="yellow"
+                    uncheckedcolor="grey"
+                    size=14px
+                    readonly="false">
+                    </star-rating>
+                </div>
+                <div class="col-5">
+                    {{item.vote_average | number:'1.1-2'}}
+                </div>
+            </div>
         </div>
     </div>

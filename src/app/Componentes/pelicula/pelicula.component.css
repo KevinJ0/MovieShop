@@ -7,6 +7,8 @@
 .swiper-wrapper {
 }
 .swiper-slide {
+  border-radius: 5px;
+  box-shadow: 2px 2px white;
   flex-shrink: 0;
   width: 100%;
   height: 100%;

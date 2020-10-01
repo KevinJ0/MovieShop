@@ -9,14 +9,19 @@ import { Movie } from '../../Interfaces/cartelera-response';
 })
 export class HomeComponent implements OnInit {
   public movies: Movie[] = [];
+  public serie: Movie[] = [];
 
-  constructor( private peliculaservice : PeliculasService) { }
+  constructor( private peliculaservice: PeliculasService) { }
 
   ngOnInit(): void {
     this.peliculaservice.getCartelera().subscribe( resp => {
-      console.log(resp);
+      // console.log(resp);
       this.movies = resp.results;
+    });
 
+    this.peliculaservice.getSerie().subscribe( serie => {
+      console.log(serie);
+      this.serie = serie.results;
     });
   }
 

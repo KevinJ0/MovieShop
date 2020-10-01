@@ -30,8 +30,9 @@ import { SlideshowComponent } from './Componentes/slideshow/slideshow.component'
 import { SwiperModule } from 'ngx-swiper-wrapper';
 import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
- 
- 
+import { PostedGridComponent } from './Componentes/posted-grid/posted-grid.component';
+import { RatingModule } from 'ng-starrating';
+
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
     ViewComponent,
     CarouselComponent,
     SlideshowComponent,
+    PostedGridComponent,
 
   ],
   imports: [
@@ -65,6 +67,8 @@ import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
     ReactiveFormsModule,
     MatCardModule,
     SwiperModule,
+
+    RatingModule,
 
   ],
   providers: [
