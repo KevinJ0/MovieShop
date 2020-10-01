@@ -26,10 +26,15 @@ import { CutTextPipe } from './Pipes/cut-text.pipe';
 import { NoImagenPipe } from './Pipes/no-imagen.pipe';
 import { ViewComponent } from './Componentes/view/view.component';
 import { CarouselComponent } from './Componentes/carousel/carousel.component';
+import { SlideshowComponent } from './Componentes/slideshow/slideshow.component';
+import { SwiperModule } from 'ngx-swiper-wrapper';
+import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
+import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
+ 
+ 
 
 @NgModule({
   declarations: [
-
     AppComponent,
     HomeComponent,
     SearchComponent,
@@ -41,6 +46,7 @@ import { CarouselComponent } from './Componentes/carousel/carousel.component';
     NoImagenPipe,
     ViewComponent,
     CarouselComponent,
+    SlideshowComponent,
 
   ],
   imports: [
@@ -58,9 +64,12 @@ import { CarouselComponent } from './Componentes/carousel/carousel.component';
     MatSidenavModule,
     ReactiveFormsModule,
     MatCardModule,
+    SwiperModule,
+
   ],
   providers: [
-    AuthService
+    AuthService,
+    
   ],
   bootstrap: [AppComponent]
 })

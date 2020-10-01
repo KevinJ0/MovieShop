@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentInit, Component, OnInit } from '@angular/core';
 import { PeliculasService } from '../../Service/peliculas.service';
 import { Observable } from 'rxjs';
 import { carousel } from '../../../assets/js/carousel';
+import { CarteleraResponse } from '../../Interfaces/cartelera-response';
 
+// init Swiper:
 //#region metodo declarado en un archivo js
 declare function carousel(): any;
 ////#endregion
@@ -13,17 +15,15 @@ declare function carousel(): any;
 })
 
 
-export class PeliculaComponent implements OnInit {
+export class PeliculaComponent implements OnInit, AfterContentInit {
 
 
   constructor(private peliculaSvc: PeliculasService) { }
-
   peliculas: Observable<any>;
-  pelicula: any;
+
   ngOnInit(): void {
-    carousel();
-    this.getAllMovies();
-    this.peliculas.subscribe(to => console.log(to));
+   
+
   }
   getAllMovies() {
 
@@ -31,5 +31,10 @@ export class PeliculaComponent implements OnInit {
     console.log(this.peliculas);
   }
 
+  ngAfterContentInit(): void {
+    this.getAllMovies();
+    this.peliculas.subscribe(to => carousel());
+    console.log("Todas las peliculas han sido cargadas");
 
+  }
 }
