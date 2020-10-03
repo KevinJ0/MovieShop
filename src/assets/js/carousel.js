@@ -1,4 +1,57 @@
+
+
+// init Swiper:
+
+
 function carousel() {
+
+    var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 2,
+        spaceBetween: 30,
+        slidesPerGroup: 2,
+        observer: true,
+        loop: true,
+        loopFillGroupWithBlank: false,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        breakpoints: {
+            '@0.50': {
+                slidesPerView: 2,
+                spaceBetween: 20,
+                slidesPerGroup: 2,
+            },
+            '@0.75': {
+                slidesPerView: 3,
+                spaceBetween: 20,
+                slidesPerGroup: 3,
+            },
+            '@1.00': {
+                slidesPerView: 4,
+                spaceBetween: 30,
+                slidesPerGroup: 4,
+            },
+            '@1.50': {
+                slidesPerView: 5,
+                spaceBetween: 30,
+                slidesPerGroup: 5,
+            },
+            '@1.75': {
+                slidesPerView: 6,
+                spaceBetween: 30,
+                slidesPerGroup: 6,
+            }, '@2': {
+                slidesPerView: 8,
+                spaceBetween: 20,
+                slidesPerGroup: 8,
+            },
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
 
 
 

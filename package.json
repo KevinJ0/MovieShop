@@ -31,7 +31,7 @@
     "ngx-swiper-wrapper": "^10.0.0",
     "react-dev-utils": "^10.1.0",
     "rxjs": "~6.6.0",
-    "swiper": "^6.2.0",
+    "swiper": "^6.3.2",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },

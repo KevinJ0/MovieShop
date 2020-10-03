@@ -25,6 +25,7 @@ import { TarjetasComponent } from './Componentes/tarjetas/tarjetas.component';
 import { CutTextPipe } from './Pipes/cut-text.pipe';
 import { NoImagenPipe } from './Pipes/no-imagen.pipe';
 import { ViewComponent } from './Componentes/view/view.component';
+import { CarouselComponent } from './Componentes/carousel/carousel.component';
 import { SlideshowComponent } from './Componentes/slideshow/slideshow.component';
 import { SwiperModule } from 'ngx-swiper-wrapper';
 import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
@@ -32,15 +33,9 @@ import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { PostedGridComponent } from './Componentes/posted-grid/posted-grid.component';
 import { RatingModule } from 'ng-starrating';
 
-const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
-  direction: 'horizontal',
-  slidesPerView: 'auto'
-};
-
 
 @NgModule({
   declarations: [
-
     AppComponent,
     HomeComponent,
     SearchComponent,
@@ -51,6 +46,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     CutTextPipe,
     NoImagenPipe,
     ViewComponent,
+    CarouselComponent,
     SlideshowComponent,
     PostedGridComponent,
 
@@ -71,15 +67,13 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     ReactiveFormsModule,
     MatCardModule,
     SwiperModule,
-    RatingModule
+
+    RatingModule,
 
   ],
   providers: [
     AuthService,
-    {
-      provide: SWIPER_CONFIG,
-      useValue: DEFAULT_SWIPER_CONFIG
-    }
+    
   ],
   bootstrap: [AppComponent]
 })

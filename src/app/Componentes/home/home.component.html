@@ -1,13 +1,19 @@
-<div class="row p-5 mt-3" *ngIf="movies.length > 0">
-    <div class="col ">
-        <app-slideshow [movies]="movies"></app-slideshow>
+<div class="pelicula-principal">
+    <div class="contenedor">
+        <h3 class="titulo">The King The Eternal Monarch</h3>
+        <p class="descripcion">
+            Mientras Lee Gon llora la trágica muerte de su padre, Lee Lim halla una inesperada escapatoria al toparse con una puerta que conduce a un universo paralelo.  </p>
+        <button role="button" class="boton play"><i class="fas fa-play"></i>Reproducir</button>
+        <button role="button" class="boton"><i class="fas fa-info-circle"></i>Más información</button>
     </div>
 </div>
+<app-pelicula></app-pelicula>
+
+<!-- <app-carousel [title]="'Top'"></app-carousel> -->
+ 
 
 <!-- <div class="row " *ngIf="serie.length > 0">
     <div class="col">
         <app-posted-grid [serie]="serie"></app-posted-grid>
     </div>
 </div> -->
-
-<app-pelicula></app-pelicula>
