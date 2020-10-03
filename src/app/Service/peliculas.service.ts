@@ -1,3 +1,4 @@
+import { MovieResponse } from './../Interfaces/MovieResponse';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -37,5 +38,10 @@ export class PeliculasService {
     const url = `${this.urlMoviedb}/tv/popular?api_key=${this.apikey}&language=es-ES`;
     return this.http.get<CarteleraResponse>(url).pipe(map((data: any) => data.results));
   }
+
+ getDetalle(id: string) {
+  return this.http.get<MovieResponse>(`${this.urlMoviedb}/multi/${id}?api_key=${this.apikey}&language=es-ES`);
+
+ }
 
 }

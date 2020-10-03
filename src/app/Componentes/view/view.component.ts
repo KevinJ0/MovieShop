@@ -1,4 +1,7 @@
+import { MovieResponse } from './../../Interfaces/MovieResponse';
+import { PeliculasService } from './../../Service/peliculas.service';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-view',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private activatedRoute: ActivatedRoute,
+              private PeliculasService: PeliculasService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    const id = this.activatedRoute.snapshot.params.id;
+    
+    this.PeliculasService.getDetalle(id).subscribe(movie => {
+      console.log(movie);
+    });
+    
+    
   }
 
 }

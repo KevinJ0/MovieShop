@@ -1,3 +1,4 @@
+import { Movie } from './../../Interfaces/cartelera-response';
 import { Component, Input} from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -12,11 +13,16 @@ export class TarjetasComponent {
 
   constructor( private router: Router ) { }
 
-  VerPeliculas(item: any): void {
+  VerPeliculas(item: Movie): void {
 
     const peliculaId = item.id;
     this.router.navigate([ '/view',  peliculaId  ]);
+    console.log(item)
   }
+  // onMovieClick(item: Movie){
+  //   console.log(item);
+
+  // }
 
 
 

@@ -1,6 +1,8 @@
 <div class="row mt-5 p-5">
     <div (click)="VerPeliculas( item )" class="col-md-3 mb-5 " *ngFor="let item of items">
-        <img [src]="item.poster_path | noImagen" class="img-fluid poster puntero" alt="{{item.title}}">
+        <img [src]="item.poster_path | noImagen" 
+             class="img-fluid poster puntero" 
+             alt="{{item.title}}">
         <div>
             <h3>{{item.title || item.name |cutText:33 }}</h3>
             <div class="row">

@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { Swiper } from 'swiper';
+import { Router } from '@angular/router';
 
 import { Movie } from '../../Interfaces/cartelera-response';
 
@@ -14,7 +15,7 @@ export class SlideshowComponent implements OnInit, AfterViewInit {
 
   public mySwiper: Swiper;
 
-  constructor() { }
+  constructor(private router: Router ) { }
   ngAfterViewInit(): void {
      this.mySwiper = new Swiper('.swiper-container', {
       // Optional parameters
@@ -50,6 +51,12 @@ export class SlideshowComponent implements OnInit, AfterViewInit {
   onSlideNext(): void{
     this.mySwiper.slideNext();
 
+  }
+  VerPeliculas(item: Movie): void {
+
+    const peliculaId = item.id;
+    this.router.navigate([ '/view',  peliculaId  ]);
+    console.log(item)
   }
 
 }
