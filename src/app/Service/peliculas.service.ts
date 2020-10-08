@@ -26,7 +26,7 @@ export class PeliculasService {
   // https://api.themoviedb.org/3/search/multi?api_key=<<api_key>>&language=en-US&page=1&include_adult=false
 
   getSearch( termino: string ): Observable<CarteleraResponse>{
-    const url = `${ this.urlMoviedb }/search/multi?query=${ termino }&sort_by=popularity.desc&api_key=${ this.apikey }&language=es&include_adult=true`;
+    const url = `${ this.urlMoviedb }/search/movie?query=${ termino }&sort_by=popularity.desc&api_key=${ this.apikey }&language=es&include_adult=true`;
     return this.http.get<CarteleraResponse>( url ).pipe(map((data: any) => data.results));
   }
 
@@ -39,8 +39,8 @@ export class PeliculasService {
     return this.http.get<CarteleraResponse>(url).pipe(map((data: any) => data.results));
   }
 
- getDetalle(id: string) {
-  return this.http.get<MovieResponse>(`${this.urlMoviedb}/multi/${id}?api_key=${this.apikey}&language=es-ES`);
+ getDetalle(id: string): Observable<MovieResponse> {
+  return this.http.get<MovieResponse>(`${this.urlMoviedb}/movie/${id}?api_key=${this.apikey}&language=es-ES`);
 
  }
 
