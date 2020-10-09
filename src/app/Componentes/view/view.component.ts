@@ -32,8 +32,8 @@ export class ViewComponent implements OnInit {
     });
 
     this.PeliculasService.getCast(id).subscribe(cast => {
-      console.log(cast);
-      this.cast = cast;
+      // filtrando resultado para que solo mueste cast que tenga fotos
+      this.cast = cast.filter(actor =>actor.profile_path !== null);
     })
     
   }

@@ -51,6 +51,11 @@
               <p><span>Generos: </span> {{pelicula.genres[0].name}} | {{pelicula.genres[1].name}}</p>
             </div>
           </div>
-        
+  </div>
+</div>
+
+<div class="row mt-5" *ngIf="cast.length > 0">
+  <div class="col">
+    <app-slideshow [cast]="cast"></app-slideshow>
   </div>
 </div>

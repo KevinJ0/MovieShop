@@ -1,4 +1,4 @@
-import { CastResponse } from './../Interfaces/Castresponse';
+import { Cast, CastResponse } from './../Interfaces/Castresponse';
 import { MovieResponse } from './../Interfaces/MovieResponse';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -46,7 +46,7 @@ export class PeliculasService {
     );
  }
 
- getCast(id: string){
+ getCast(id: string):Observable<Cast[]>{
   return this.http.get<CastResponse>(`${this.urlMoviedb}/movie/${id}/credits?api_key=${this.apikey}&language=es-ES`).pipe(
     map(resp => resp.cast),
     catchError(err => of([]))
