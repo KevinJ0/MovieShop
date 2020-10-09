@@ -1,9 +1,10 @@
+import { CastResponse } from './../Interfaces/Castresponse';
 import { MovieResponse } from './../Interfaces/MovieResponse';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { CarteleraResponse, Movie } from '../Interfaces/cartelera-response';
+import { Observable, of } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
+import { CarteleraResponse} from '../Interfaces/cartelera-response';
 
 @Injectable({
   providedIn: 'root'
@@ -39,9 +40,17 @@ export class PeliculasService {
     return this.http.get<CarteleraResponse>(url).pipe(map((data: any) => data.results));
   }
 
- getDetalle(id: string): Observable<MovieResponse> {
-  return this.http.get<MovieResponse>(`${this.urlMoviedb}/movie/${id}?api_key=${this.apikey}&language=es-ES`);
-
+ getDetalle(id: string) {
+  return this.http.get<MovieResponse>(`${this.urlMoviedb}/movie/${id}?api_key=${this.apikey}&language=es-ES`).pipe(
+    catchError(err => of(null))
+    );
  }
+
+ getCast(id: string){
+  return this.http.get<CastResponse>(`${this.urlMoviedb}/movie/${id}/credits?api_key=${this.apikey}&language=es-ES`).pipe(
+    map(resp => resp.cast),
+    catchError(err => of([]))
+  );
+}
 
 }

@@ -1,7 +1,8 @@
+import { Cast } from './../../Interfaces/Castresponse';
 import { MovieResponse } from './../../Interfaces/MovieResponse';
 import { PeliculasService } from './../../Service/peliculas.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
@@ -12,18 +13,28 @@ import { Location } from '@angular/common';
 export class ViewComponent implements OnInit {
 
   public pelicula:MovieResponse;
+  public cast:Cast[] = [];
 
   constructor(private activatedRoute: ActivatedRoute,
               private PeliculasService: PeliculasService,
-              private location: Location) { }
+              private location: Location,
+              private Router: Router) { }
 
   ngOnInit() {
     const id = this.activatedRoute.snapshot.params.id;
     
     this.PeliculasService.getDetalle(id).subscribe(movie => {
-      console.log(movie);
+      if (!movie) {
+        this.Router.navigateByUrl('/home')
+        return;
+      }
       this.pelicula = movie;
     });
+
+    this.PeliculasService.getCast(id).subscribe(cast => {
+      console.log(cast);
+      this.cast = cast;
+    })
     
   }
    onRegresar(){
