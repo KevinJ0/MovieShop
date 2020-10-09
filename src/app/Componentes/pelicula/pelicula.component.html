@@ -1,6 +1,8 @@
-<div class="swiper-container">
+<div class="swiper-container mt-5">
   <div class="swiper-wrapper">
-    <div class="swiper-slide"
+    <div 
+    (click)="VerPeliculas( peli )"
+      class="swiper-slide puntero"
       style=" background-image:url(https://image.tmdb.org/t/p/w200/{{peli.poster_path}}); "
       *ngFor="let peli of peliculas | async">
       <!-- <img src="" alt="{{peli.original_title}} "> -->

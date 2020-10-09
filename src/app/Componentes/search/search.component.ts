@@ -19,7 +19,7 @@ export class SearchComponent {
     this.loading = true;
     this.pelisevi.getSearch(termino).subscribe((data: any) => {
       console.log(data);
-      this.resultado = data;
+      this.resultado = data.filter(data =>data.profile_path !== null);
       this.loading = false;
     });
   }

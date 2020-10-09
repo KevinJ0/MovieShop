@@ -32,7 +32,7 @@
             <div class="col-2 ">
               <p><span>IMDB: </span></p>
             </div>
-            <div class="col-4">
+            <div class="col-4 col-md-auto col-sm-auto col-lg-auto">
               <star-rating 
                 [value]="pelicula.vote_average"
                 totalstars="10"
@@ -51,6 +51,11 @@
               <p><span>Generos: </span> {{pelicula.genres[0].name}} | {{pelicula.genres[1].name}}</p>
             </div>
           </div>
-        
+  </div>
+</div>
+
+<div class="row mt-5" *ngIf="cast.length > 0">
+  <div class="col">
+    <app-slideshow [cast]="cast"></app-slideshow>
   </div>
 </div>
