@@ -1,23 +1,13 @@
-<!-- Slider main container -->
-<div class="swiper-container mt-3">
-    <!-- Additional required wrapper -->
+<div class="swiper-container">
     <div class="swiper-wrapper">
-        <!-- Slides -->
-        <div class="swiper-slide" *ngFor="let movie of movies" [ngStyle]="{
-                'background-size':'cover',
-                'background-image': 'url(https://image.tmdb.org/t/p/w500'+ movie.backdrop_path +')'
-              }">
-            <div class="movie-desc">
-                <h3>{{movie.title}}</h3>
-                <p>
-                    {{movie.overview | cutText: 260}}
-                </p>
-            </div>
+        <div *ngFor="let actor of cast"
+        class="swiper-slide text-white text-center">
+        <img class="img-thumbnail"
+             [src]="actor.profile_path | noImagen"
+             [alt]="actor.name" />
+        {{actor.name}}
+            
+
         </div>
     </div>
-
-    <!-- If we need navigation buttons -->
-    <div (click)="onSlidePrev()" class="swiper-button-prev"></div>
-    <div (click)="onSlideNext()" class="swiper-button-next"></div>
-
 </div>

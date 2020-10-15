@@ -1,7 +1,6 @@
+import { Cast } from './../../Interfaces/Castresponse';
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { Swiper } from 'swiper';
-
-import { Movie } from '../../Interfaces/cartelera-response';
 
 @Component({
   selector: 'app-slideshow',
@@ -10,46 +9,28 @@ import { Movie } from '../../Interfaces/cartelera-response';
 })
 export class SlideshowComponent implements OnInit, AfterViewInit {
 
-  @Input() movies: Movie[];
+  @Input() cast: Cast[];
 
   public mySwiper: Swiper;
 
-  constructor() { }
+  constructor( ) { }
   ngAfterViewInit(): void {
      this.mySwiper = new Swiper('.swiper-container', {
-      // Optional parameters
-      direction: 'horizontal',
-      loop: true,
-
-      // If we need pagination
-      pagination: {
-        el: '.swiper-pagination',
-      },
-
-      // Navigation arrows
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-
-      // And if we need scrollbar
-      scrollbar: {
-        el: '.swiper-scrollbar',
-      },
+       slidesPerView:5.3,
+       freeMode:true,
+       spaceBetween:15
     });
   }
 
   ngOnInit(): void {
-    console.log(this.movies);
+    console.log(this.cast);
   }
   
-  onSlidePrev(): void{
-    this.mySwiper.slidePrev();
+  // VerPeliculas(item: Movie): void {
 
-  }
-  onSlideNext(): void{
-    this.mySwiper.slideNext();
-
-  }
+  //   const peliculaId = item.id;
+  //   this.router.navigate([ '/view',  peliculaId  ]);
+  //   console.log(item)
+  // }
 
 }
