@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { CarteleraResponse, Movie } from '../Interfaces/cartelera-response';
+import { CarteleraResponse, Genres, Movie } from '../Interfaces/cartelera-response';
 
 @Injectable({
   providedIn: 'root'
@@ -24,18 +24,23 @@ export class PeliculasService {
 
   // https://api.themoviedb.org/3/search/multi?api_key=<<api_key>>&language=en-US&page=1&include_adult=false
 
-  getSearch( termino: string ): Observable<CarteleraResponse>{
-    const url = `${ this.urlMoviedb }/search/multi?query=${ termino }&sort_by=popularity.desc&api_key=${ this.apikey }&language=es&include_adult=true`;
-    return this.http.get<CarteleraResponse>( url ).pipe(map((data: any) => data.results));
+  getSearch(termino: string): Observable<CarteleraResponse> {
+    const url = `${this.urlMoviedb}/search/multi?query=${termino}&sort_by=popularity.desc&api_key=${this.apikey}&language=es&include_adult=true`;
+    return this.http.get<CarteleraResponse>(url).pipe(map((data: any) => data.results));
   }
 
-  getCartelera(): Observable<CarteleraResponse>{
+  getCartelera(): Observable<CarteleraResponse> {
     return this.http.get<CarteleraResponse>(this.Url).pipe(map((resp) => resp));
   }
 
-  getSerie(): Observable<CarteleraResponse>{
+  getSerie(): Observable<CarteleraResponse> {
     const url = `${this.urlMoviedb}/tv/popular?api_key=${this.apikey}&language=es-ES`;
     return this.http.get<CarteleraResponse>(url).pipe(map((data: any) => data.results));
+  }
+
+  getGenrers(): Observable<Genres> {
+    const url = `${this.urlMoviedb}/genre/movie/list?api_key=${this.apikey}`;
+    return this.http.get<Genres>(url).pipe(map((data: any) => { return data}));
   }
 
 }

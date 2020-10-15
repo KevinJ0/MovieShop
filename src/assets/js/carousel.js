@@ -7,44 +7,47 @@ function carousel() {
 
     var swiper = new Swiper('.swiper-container', {
         slidesPerView: 2,
-        spaceBetween: 30,
+        spaceBetween: 20,
         slidesPerGroup: 2,
         observer: true,
         loop: true,
+        autoHeight: true,
         loopFillGroupWithBlank: false,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
         breakpoints: {
-            '@0.50': {
-                slidesPerView: 2,
-                spaceBetween: 20,
-                slidesPerGroup: 2,
-            },
-            '@0.75': {
+            558 : {
                 slidesPerView: 3,
-                spaceBetween: 20,
+                spaceBetween: 30,
                 slidesPerGroup: 3,
             },
-            '@1.00': {
+           
+            704 : {
                 slidesPerView: 4,
                 spaceBetween: 30,
                 slidesPerGroup: 4,
             },
-            '@1.50': {
+           1000: {
                 slidesPerView: 5,
                 spaceBetween: 30,
                 slidesPerGroup: 5,
             },
-            '@1.75': {
+            1300: {
                 slidesPerView: 6,
                 spaceBetween: 30,
                 slidesPerGroup: 6,
-            }, '@2': {
+            }, 1500: {
+                slidesPerView: 7,
+                spaceBetween: 30,
+                slidesPerGroup: 7,
+            }, 
+            1800: {
                 slidesPerView: 8,
-                spaceBetween: 20,
+                spaceBetween: 30,
                 slidesPerGroup: 8,
+            },
+            1980: {
+                slidesPerView: 9,
+                spaceBetween: 30,
+                slidesPerGroup: 9,
             },
         },
         navigation: {

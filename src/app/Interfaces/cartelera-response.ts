@@ -27,3 +27,11 @@ export interface Movie {
   overview:          string;
   release_date:      Date;
 }
+export interface Genres {
+  genres:           Genre[];
+}
+
+export interface Genre {
+  id:               number;
+  name:             string;
+}

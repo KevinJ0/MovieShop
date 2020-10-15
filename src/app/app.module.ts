@@ -7,7 +7,7 @@ import { SearchComponent } from './Componentes/search/search.component';
 import { NavbarComponent } from './Componentes/shared/navbar/navbar.component';
 import { AuthService } from './Service/auth.service';
 import { AppRoutingModule } from './app-routing.module';
-import { PeliculaComponent } from './Componentes/pelicula/pelicula.component';
+import { CarouselComponent } from './Componentes/carousel/carousel.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { ProfileComponent } from './Componentes/profile/profile.component';
@@ -25,7 +25,6 @@ import { TarjetasComponent } from './Componentes/tarjetas/tarjetas.component';
 import { CutTextPipe } from './Pipes/cut-text.pipe';
 import { NoImagenPipe } from './Pipes/no-imagen.pipe';
 import { ViewComponent } from './Componentes/view/view.component';
-import { CarouselComponent } from './Componentes/carousel/carousel.component';
 import { SlideshowComponent } from './Componentes/slideshow/slideshow.component';
 import { SwiperModule } from 'ngx-swiper-wrapper';
 import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
@@ -40,13 +39,12 @@ import { RatingModule } from 'ng-starrating';
     HomeComponent,
     SearchComponent,
     NavbarComponent,
-    PeliculaComponent,
+    CarouselComponent,
     ProfileComponent,
     TarjetasComponent,
     CutTextPipe,
     NoImagenPipe,
     ViewComponent,
-    CarouselComponent,
     SlideshowComponent,
     PostedGridComponent,
 
@@ -67,7 +65,6 @@ import { RatingModule } from 'ng-starrating';
     ReactiveFormsModule,
     MatCardModule,
     SwiperModule,
-
     RatingModule,
 
   ],
