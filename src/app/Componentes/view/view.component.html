@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row mt-5" *ngIf="pelicula">
+  <div class="row mt-5 img-fluid" *ngIf="pelicula" [ngStyle]="{backgroundImage: backgroundImg}">
     <div class="col-6 ">
       <h3>{{pelicula.title}} ({{pelicula.release_date | slice: 0:4}})</h3>
       <img [src]="pelicula.poster_path | noImagen" 
@@ -51,11 +51,16 @@
               <p><span>Generos: </span> {{pelicula.genres[0].name}} | {{pelicula.genres[1].name}}</p>
             </div>
           </div>
+          <button 
+           class="btn btn-outline-info"
+           (click)="onRegresar">Regresar
+          </button>
   </div>
 </div>
 
 <div class="row mt-5" *ngIf="cast.length > 0">
   <div class="col">
+    <h3>Elencos</h3>
     <app-slideshow [cast]="cast"></app-slideshow>
   </div>
 </div>

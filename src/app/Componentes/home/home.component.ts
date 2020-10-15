@@ -20,7 +20,6 @@ export class HomeComponent implements OnInit {
     });
 
     this.peliculaservice.getSerie().subscribe( serie => {
-      console.log(serie);
       this.serie = serie.results;
     });
   }

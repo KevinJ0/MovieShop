@@ -1,20 +1,43 @@
-<div class="peliculas-recomendadas contenedor">
-  <h1 class="titleCarousel"><b>{{title}}</b></h1>
-  <div class="contenedor-principal" onmouseover="showArrows()" onmouseout="hideArrows()">
-    <button role="button" id="flecha-izquierda" class="flecha-izquierda"><i class="fas fa-angle-left"></i></button>
+<div class="swiper-container">
+  <h1 class="titleCarousel">{{title}}</h1>
+  <div class="swiper-wrapper">
 
-    <div class="contenedor-carousel">
-      <div class="carousel">
-        <mat-card class="pelicula" *ngFor="let peli of peliculas | async">
-          <div class="layout-info">
-            <img mat-card-image src="https://image.tmdb.org/t/p/w200/{{peli.poster_path}}" alt=" ">
+    <div class="swiper-slide" 
+    (click)="VerPeliculas( peli )"
+    *ngFor="let peli of peliculas | async">
+      <!-- style="background-image: url('https://image.tmdb.org/t/p/w200/{{peli.poster_path}}';" -->
+      <div id="details" class="details">
+        <img src="https://image.tmdb.org/t/p/w300/{{peli.poster_path}}" />
+
+        <div class="details-background">
+          <div class="details-content">
+            <div class="votes">
+              <span>
+                {{peli.vote_average}}<i class="fas fa-star"></i>
+              </span>
+              <span>({{peli.vote_count}} rating)
+              </span>
+            </div>
+            <div class="genero" style="display: inline-block;">
+              <span *ngFor="let generoList of [0,1]; let myIndex = index; let isLast=last">
+                <ng-template [ngIf]="peli.genre_ids[myIndex] !== undefined">
+                  <span *ngFor="let dataGenre of GenresJson; index as i;">
+                    <ng-template [ngIf]="peli.genre_ids[myIndex] == dataGenre.id">
+                      {{dataGenre.name}}
+                      <ng-template [ngIf]="peli.genre_ids.length>1">
+                        {{isLast ? '' : ' • '}}
+                      </ng-template>
+                    </ng-template>
+                  </span>
+                </ng-template>
+              </span>
+            </div>
           </div>
-          <mat-card-title>
-            {{peli.original_title}}
-          </mat-card-title>
-        </mat-card>
+        </div>
       </div>
     </div>
-    <button role="button" id="flecha-derecha" class="flecha-derecha"><i class="fas fa-angle-right"></i></button>
   </div>
+  <!-- Add Arrows -->
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
 </div>
