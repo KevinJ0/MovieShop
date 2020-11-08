@@ -2,29 +2,33 @@ import { AfterContentInit, ChangeDetectionStrategy, Component, Input, OnInit } f
 import { PeliculasService } from '../../Service/peliculas.service';
 import { Observable } from 'rxjs';
 import { carousel } from '../../../assets/js/carousel';
-import { CarteleraResponse, Genre, Genres } from '../../Interfaces/cartelera-response';
-import { element } from 'protractor';
+
 
 // init Swiper:
 //#region metodo declarado en un archivo js
 declare function carousel(): any;
 ////#endregion
+
+
 @Component({
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.css']
 })
 
+
+
 export class CarouselComponent implements OnInit {
   @Input() title: string;
+  @Input() feature: string;
 
   constructor(private peliculaSvc: PeliculasService) { }
   peliculas: Observable<any>;
-  //public allGenres: Genre[] = [];
   public GenresJson: any = {};
 
+
   ngOnInit(): void {
-    this.getAllMovies();
+    this.getAllMovies(this.feature);
     this.peliculas.subscribe(to => carousel());
     console.log("Todas las peliculas han sido cargadas");
     this.peliculaSvc.getGenrers().subscribe(res => {
@@ -33,10 +37,11 @@ export class CarouselComponent implements OnInit {
     });
   }
 
-  getAllMovies() {
-    this.peliculas = this.peliculaSvc.getAllMovies();
+  getAllMovies(data: string) {
+
+    this.peliculas = this.peliculaSvc.getListofMovies(data);
   }
- 
+
   //devuelve el tipo de genero de la pelicula según el id_genre y cant es para la cantidad de generos a devolver
   getGenero(peli: any, cant: number): string[] {
     var generosList: string[] = [];
@@ -48,7 +53,7 @@ export class CarouselComponent implements OnInit {
         if (generosList.length >= cant) {
           console.log(generosList);
           return generosList;
-        } 
+        }
       }
     }
     return generosList;

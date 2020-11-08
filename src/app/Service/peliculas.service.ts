@@ -14,14 +14,16 @@ export class PeliculasService {
   private apikey = '79279b415e6f8506ed9d11b5eede79ce';
   private urlMoviedb = 'https://api.themoviedb.org/3';
   // Optimizacion del servicio
-  URL_API = `https://api.themoviedb.org/3/movie/popular?api_key=79279b415e6f8506ed9d11b5eede79ce&language=en-US&page=1`;
+  URL_POPULAR = `https://api.themoviedb.org/3/movie/popular?api_key=79279b415e6f8506ed9d11b5eede79ce&language=en-US&page=1`;
   Url = `https://api.themoviedb.org/3/movie/now_playing?api_key=79279b415e6f8506ed9d11b5eede79ce&language=es-ES&page=1`;
+  
   constructor(private http: HttpClient) { }
 
-  public getAllMovies(): Observable<CarteleraResponse> {
-    return this.http.get<CarteleraResponse>(this.URL_API).
+  public getListofMovies(Feature: string): Observable<CarteleraResponse> {
+    const url = `${this.urlMoviedb}/movie/${Feature}?api_key=${this.apikey}&language=es&include_adult=true`;
+    console.log(url)
+    return this.http.get<CarteleraResponse>(url).
       pipe(map((data: any) => data.results));
-
   }
 
   // https://api.themoviedb.org/3/search/multi?api_key=<<api_key>>&language=en-US&page=1&include_adult=false
