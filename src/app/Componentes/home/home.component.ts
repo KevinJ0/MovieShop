@@ -10,6 +10,13 @@ import { Movie } from '../../Interfaces/cartelera-response';
 export class HomeComponent implements OnInit {
   public movies: Movie[] = [];
   public serie: Movie[] = [];
+  
+  public Movies_Features = {
+    POPULAR: "popular",
+    UPCOMING: "upcoming",
+    TOP_RATED: "top_rated",
+    NOW_PLAYING: "now_playing"
+  };
 
   constructor( private peliculaservice: PeliculasService) { }
 
