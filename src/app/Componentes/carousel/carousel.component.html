@@ -19,9 +19,9 @@
             <div class="genero" style="display: inline-block;">
               <span *ngFor="let generoList of [0,1]; let myIndex = index; let isLast=last">
                 <ng-template [ngIf]="peli.genre_ids[myIndex] !== undefined">
-                  <span *ngFor="let dataGenre of GenresJson; index as i;">
-                    <ng-template [ngIf]="peli.genre_ids[myIndex] == dataGenre.id">
-                      {{dataGenre.name}}
+                  <span *ngFor="let data of GenresList | async">
+                    <ng-template [ngIf]="peli.genre_ids[myIndex] == data.id">
+                      {{data.name}}
                       <ng-template [ngIf]="peli.genre_ids.length>1">
                         {{isLast ? '' : ' • '}}
                       </ng-template>
@@ -36,18 +36,8 @@
     </div>
   </div>
 
-  
   <!-- Add Arrows -->
   <div class="swiper-button-next"></div>
   <div class="swiper-button-prev"></div>
-</div>
-
-<div class="glide">
-  <div class="glide__track" data-glide-el="track">
-    <ul class="glide__slides">
-      <li class="glide__slide">0</li>
-      <li class="glide__slide">1</li>
-      <li class="glide__slide">2</li>
-    </ul>
-  </div>
+  
 </div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PeliculasService } from '../../Service/peliculas.service';
 import { Movie } from '../../Interfaces/cartelera-response';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -10,7 +11,7 @@ import { Movie } from '../../Interfaces/cartelera-response';
 export class HomeComponent implements OnInit {
   public movies: Movie[] = [];
   public serie: Movie[] = [];
-  
+ 
   public Movies_Features = {
     POPULAR: "popular",
     UPCOMING: "upcoming",
@@ -18,15 +19,17 @@ export class HomeComponent implements OnInit {
     NOW_PLAYING: "now_playing"
   };
 
-  constructor( private peliculaservice: PeliculasService) { }
+  constructor(private peliculaservice: PeliculasService) { }
 
   ngOnInit(): void {
-    this.peliculaservice.getCartelera().subscribe( resp => {
+
+    this.peliculaservice.getCartelera().subscribe(resp => {
       // console.log(resp);
       this.movies = resp.results;
+     
     });
 
-    this.peliculaservice.getSerie().subscribe( serie => {
+    this.peliculaservice.getSerie().subscribe(serie => {
       this.serie = serie.results;
     });
   }

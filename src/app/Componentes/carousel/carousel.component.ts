@@ -13,6 +13,7 @@ declare function carousel(): any;
 @Component({
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./carousel.component.css']
 })
 
@@ -22,41 +23,25 @@ export class CarouselComponent implements OnInit {
   @Input() title: string;
   @Input() feature: string;
 
+
   constructor(private peliculaSvc: PeliculasService) { }
   peliculas: Observable<any>;
-  public GenresJson: any = {};
+  GenresList: Observable<any>;
 
+  
 
   ngOnInit(): void {
-    this.getAllMovies(this.feature);
-    this.peliculas.subscribe(to => carousel());
+    carousel(); // inicializo el carousel swiper
+    this.setAllMovies(this.feature);
     console.log("Todas las peliculas han sido cargadas");
-    this.peliculaSvc.getGenrers().subscribe(res => {
-      this.GenresJson = res.genres;
-      console.log(this.GenresJson)
-    });
+
+    this.GenresList = this.peliculaSvc.getGenrers(); //.subscribe(r => { r = this.GenresJson });
+
   }
 
-  getAllMovies(data: string) {
+  setAllMovies(data: string) {
 
     this.peliculas = this.peliculaSvc.getListofMovies(data);
   }
 
-  //devuelve el tipo de genero de la pelicula según el id_genre y cant es para la cantidad de generos a devolver
-  getGenero(peli: any, cant: number): string[] {
-    var generosList: string[] = [];
-    var count: number = 0;
-    for (var i = 0; i < this.GenresJson.length; i++) {
-      if (this.GenresJson[i].id == peli.genre_ids[count]) {
-        count++;
-        generosList.push(this.GenresJson[i].name);
-        if (generosList.length >= cant) {
-          console.log(generosList);
-          return generosList;
-        }
-      }
-    }
-    return generosList;
-  }
 }
-
