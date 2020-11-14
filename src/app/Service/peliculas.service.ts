@@ -1,5 +1,5 @@
 import { Cast, CastResponse } from './../Interfaces/Castresponse';
-import { MovieResponse } from './../Interfaces/MovieResponse';
+import { Genre, MovieResponse } from './../Interfaces/MovieResponse';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CarteleraResponse, Genres, Movie } from '../Interfaces/cartelera-response';
@@ -21,14 +21,9 @@ export class PeliculasService {
 
 
 // Modifica es peticion
-  public getAllMovies(): Observable<CarteleraResponse> {
-    return this.http.get<CarteleraResponse>(this.Url).
-
   public getListofMovies(Feature: string): Observable<CarteleraResponse> {
-    const url = `${this.urlMoviedb}/movie/${Feature}?api_key=${this.apikey}&language=es&include_adult=false`;
-    console.log(url)
+    const url = `${this.urlMoviedb}/movie/${Feature}?api_key=${this.apikey}&language=es&include_adult=true`;
     return this.http.get<CarteleraResponse>(url).
-
       pipe(map((data: any) => data.results));
   }
 
@@ -49,12 +44,13 @@ export class PeliculasService {
     return this.http.get<CarteleraResponse>(url).pipe(map((data: any) => data.results));
   }
 
-  getGenrers(): Observable<Genres> {
+  getGenrers(): Observable<Genre> {
     const url = `${this.urlMoviedb}/genre/movie/list?api_key=${this.apikey}`;
-    return this.http.get<Genres>(url).pipe(map((data: any) => { return data }));
+    return this.http.get<Genre>(url).pipe(map((data: any) => { return data.genres }));
   }
   getDetalle(id: string) {
-    return this.http.get<MovieResponse>(`${this.urlMoviedb}/movie/${id}?api_key=${this.apikey}&language=es-ES`).pipe(
+    return this.http.get<MovieResponse>(`${this.urlMoviedb}/movie/${id}?api_key=${this.apikey}&language=es-ES`)
+    .pipe(
       catchError(err => of(null))
     );
  }

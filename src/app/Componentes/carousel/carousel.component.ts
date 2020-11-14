@@ -15,6 +15,7 @@ declare function carousel(): any;
 @Component({
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./carousel.component.css']
 })
 
@@ -23,24 +24,27 @@ declare function carousel(): any;
 export class CarouselComponent implements OnInit {
   @Input() title: string;
   @Input() feature: string;
+  GenresJson: any;
+
 
   constructor(private peliculaSvc: PeliculasService,
               private router: Router) { }
-  peliculas: Observable<any>;
-  public GenresJson: any = {};
 
+  peliculas: Observable<any>;
+  GenresList: Observable<any>;
+
+  
 
   ngOnInit(): void {
-    this.getAllMovies(this.feature);
-    this.peliculas.subscribe(to => carousel());
+    carousel(); // inicializo el carousel swiper
+    this.setAllMovies(this.feature);
     console.log("Todas las peliculas han sido cargadas");
-    this.peliculaSvc.getGenrers().subscribe(res => {
-      this.GenresJson = res.genres;
-      console.log(this.GenresJson)
-    });
+
+    this.GenresList = this.peliculaSvc.getGenrers(); //.subscribe(r => { r = this.GenresJson });
+
   }
 
-  getAllMovies(data: string) {
+  setAllMovies(data: string) {
 
     this.peliculas = this.peliculaSvc.getListofMovies(data);
   }
@@ -66,5 +70,5 @@ export class CarouselComponent implements OnInit {
     this.router.navigate(['/view', id ]);
     console.log(peli)
   }
+master
 }
-

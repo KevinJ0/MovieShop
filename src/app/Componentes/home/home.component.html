@@ -1,15 +1,20 @@
 <div class="pelicula-principal">
-    <div class="contenedor">
-        <h3 class="titulo">The King The Eternal Monarch</h3>
-        <p class="descripcion">
-            Mientras Lee Gon llora la trágica muerte de su padre, Lee Lim halla una inesperada escapatoria al toparse con una puerta que conduce a un universo paralelo.  </p>
-        <button role="button" class="boton play"><i class="fas fa-play"></i>Reproducir</button>
-        <button role="button" class="boton"><i class="fas fa-info-circle"></i>Más información</button>
-    </div>
+  <div class="contenedor">
+    <h3 class="titulo">The King The Eternal Monarch</h3>
+    <p class="descripcion">
+      Mientras Lee Gon llora la trágica muerte de su padre, Lee Lim halla una inesperada escapatoria al toparse con una
+      puerta que conduce a un universo paralelo. </p>
+    <button role="button" class="boton play"><i class="fas fa-play"></i>Reproducir</button>
+    <button role="button" class="boton"><i class="fas fa-info-circle"></i>Más información</button>
+  </div>
 </div>
-<app-carousel [title]="'Tendencia'" [feature]="Movies_Features.POPULAR"></app-carousel>
+
 <!-- <app-carousel [title]="'Top'"></app-carousel> -->
- 
+
+
+<app-carousel [title]="'Tendencia'" [feature]="Movies_Features.POPULAR"></app-carousel>
+<app-carousel [title]="'Mejor Calificada'" [feature]="Movies_Features.TOP_RATED"></app-carousel>
+<app-carousel [title]="'Pronto'" [feature]="Movies_Features.UPCOMING"></app-carousel>
 
 <!-- <div class="row " *ngIf="serie.length > 0">
     <div class="col">

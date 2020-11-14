@@ -32,7 +32,6 @@ import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { PostedGridComponent } from './Componentes/posted-grid/posted-grid.component';
 import { RatingModule } from 'ng-starrating';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,9 +46,9 @@ import { RatingModule } from 'ng-starrating';
     ViewComponent,
     SlideshowComponent,
     PostedGridComponent,
-
+    
   ],
-  imports: [
+  imports: [ 
     BrowserModule,
     AppRoutingModule,
     RouterModule,
@@ -66,7 +65,6 @@ import { RatingModule } from 'ng-starrating';
     MatCardModule,
     SwiperModule,
     RatingModule,
-
   ],
   providers: [
     AuthService,
