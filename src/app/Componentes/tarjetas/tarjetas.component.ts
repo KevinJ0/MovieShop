@@ -17,7 +17,7 @@ export class TarjetasComponent {
 
     const peliculaId = item.id;
     this.router.navigate([ '/view',  peliculaId  ]);
-    console.log(item)
+    console.log(item.poster_path)
   }
   // onMovieClick(item: Movie){
   //   console.log(item);

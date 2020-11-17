@@ -14,7 +14,12 @@ export class SearchComponent {
 
   constructor(private pelisevi: PeliculasService) { }
 
-  buscar(termino: string): void{
+  ngOnInit(): void {
+    this.buscar("one")
+
+  }
+
+  buscar(termino: string): void {
     console.log(termino);
     this.loading = true;
     this.pelisevi.getSearch(termino).subscribe((data: any) => {
