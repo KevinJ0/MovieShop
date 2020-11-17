@@ -51,9 +51,9 @@ export class ViewComponent implements OnInit {
     
   }
    onRegresar(){
-    //  this.location.back();
-    //  console.log('atras');
-    this.Router.navigateByUrl('/home')
+     this.location.back();
+     console.log('atras');
+    
     
    }
 

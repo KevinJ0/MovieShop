@@ -15,7 +15,7 @@ export class SearchComponent {
   constructor(private pelisevi: PeliculasService) { }
 
   ngOnInit(): void {
-    this.buscar("one")
+    this.buscar("a")
 
   }
 
