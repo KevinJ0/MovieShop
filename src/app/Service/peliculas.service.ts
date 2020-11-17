@@ -13,6 +13,7 @@ export class PeliculasService {
   // Optimizacion del servicio
   private apikey = '79279b415e6f8506ed9d11b5eede79ce';
   private urlMoviedb = 'https://api.themoviedb.org/3';
+  headerpages = 0;
   // Optimizacion del servicio
   Url = `${this.urlMoviedb}/movie/now_playing?api_key=${this.apikey}&language=es-ES&page=1`;
   
@@ -27,7 +28,8 @@ export class PeliculasService {
   }
 
   getSearch(termino: string): Observable<CarteleraResponse> {
-    const url = `${this.urlMoviedb}/search/movie?query=${termino}&sort_by=popularity.desc&api_key=${this.apikey}&language=es&include_adult=false`;
+    this.headerpages++;
+    const url = `${this.urlMoviedb}/search/movie?query=${termino}&sort_by=popularity.desc&api_key=${this.apikey}&language=es&page=${this.headerpages}`;
     return this.http.get<CarteleraResponse>(url).pipe(map((data: any) => data.results));
   }
 

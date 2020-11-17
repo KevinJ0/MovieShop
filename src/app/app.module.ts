@@ -10,7 +10,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { CarouselComponent } from './Componentes/carousel/carousel.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { ProfileComponent } from './Componentes/profile/profile.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -29,7 +28,6 @@ import { SlideshowComponent } from './Componentes/slideshow/slideshow.component'
 import { SwiperModule } from 'ngx-swiper-wrapper';
 import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
-import { PostedGridComponent } from './Componentes/posted-grid/posted-grid.component';
 import { RatingModule } from 'ng-starrating';
 
 @NgModule({
@@ -39,13 +37,12 @@ import { RatingModule } from 'ng-starrating';
     SearchComponent,
     NavbarComponent,
     CarouselComponent,
-    ProfileComponent,
     TarjetasComponent,
     CutTextPipe,
     NoImagenPipe,
     ViewComponent,
     SlideshowComponent,
-    PostedGridComponent,
+
     
   ],
   imports: [ 
