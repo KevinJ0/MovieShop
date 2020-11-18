@@ -24,7 +24,6 @@ export class SearchComponent {
   }
 
   buscar(termino: string): void {
-    console.log(termino);
     this.loading = true;
     this.pelisevi.getSearch(termino).subscribe((data: any) => {
       console.log(data);

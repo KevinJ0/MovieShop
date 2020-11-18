@@ -29,7 +29,7 @@ export class PeliculasService {
 
   getSearch(termino: string): Observable<CarteleraResponse> {
     this.headerpages++;
-    const url = `${this.urlMoviedb}/search/movie?query=${termino}&sort_by=popularity.desc&api_key=${this.apikey}&language=es&page=${this.headerpages}`;
+    const url = `${this.urlMoviedb}/search/movie?query=${termino}&sort_by=popularity.desc&api_key=${this.apikey}&language=es`;
     return this.http.get<CarteleraResponse>(url).pipe(map((data: any) => data.results));
   }
 
