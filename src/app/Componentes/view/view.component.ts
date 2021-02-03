@@ -24,8 +24,6 @@ export class ViewComponent implements OnInit {
               private location: Location,
               private Router: Router,
               private sanitizer: DomSanitizer) { 
-                // this.name = 'Angular!'
-                // this.backgroundImg = sanitizer.bypassSecurityTrustStyle('url()');
               }
   
 
@@ -47,6 +45,7 @@ export class ViewComponent implements OnInit {
     this.PeliculasService.getCast(id).subscribe(cast => {
       // filtrando resultado para que solo mueste cast que tenga fotos
       this.cast = cast.filter(actor =>actor.profile_path !== null);
+      // filtrando resultado para que solo mueste cast que tenga fotos
     })
     
   }

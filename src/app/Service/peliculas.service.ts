@@ -13,9 +13,9 @@ export class PeliculasService {
   // Optimizacion del servicio
   private apikey = '79279b415e6f8506ed9d11b5eede79ce';
   private urlMoviedb = 'https://api.themoviedb.org/3';
+  headerpages = 0;
   // Optimizacion del servicio
-  URL_POPULAR = `https://api.themoviedb.org/3/movie/popular?api_key=79279b415e6f8506ed9d11b5eede79ce&language=en-US&page=1`;
-  Url = `https://api.themoviedb.org/3/movie/now_playing?api_key=79279b415e6f8506ed9d11b5eede79ce&language=es-ES&page=1`;
+  Url = `${this.urlMoviedb}/movie/now_playing?api_key=${this.apikey}&language=es-ES&page=1`;
   
   constructor(private http: HttpClient) { }
 
@@ -27,11 +27,9 @@ export class PeliculasService {
       pipe(map((data: any) => data.results));
   }
 
-  // https://api.themoviedb.org/3/search/multi?api_key=<<api_key>>&language=en-US&page=1&include_adult=false
-
-
   getSearch(termino: string): Observable<CarteleraResponse> {
-    const url = `${this.urlMoviedb}/search/movie?query=${termino}&sort_by=popularity.desc&api_key=${this.apikey}&language=es&include_adult=true`;
+    this.headerpages++;
+    const url = `${this.urlMoviedb}/search/movie?query=${termino}&sort_by=popularity.desc&api_key=${this.apikey}&language=es`;
     return this.http.get<CarteleraResponse>(url).pipe(map((data: any) => data.results));
   }
 
@@ -62,10 +60,5 @@ export class PeliculasService {
   );
 }
   }
-  // getCast(id: string): Observable<Cast[]> {
-  //   return this.http.get<CastResponse>(`${this.urlMoviedb}/movie/${id}/credits?api_key=${this.apikey}&language=es-ES`).pipe(
-  //     map(resp => resp.cast),
-  //     catchError(err => of([]))
-  //   );
-  // }
+  
 
