@@ -19,7 +19,7 @@ export class SearchComponent {
               private router : Router) { }
 
   ngOnInit(): void {
-    this.buscar("a")
+    this.buscar("a") 
 
   }
 
